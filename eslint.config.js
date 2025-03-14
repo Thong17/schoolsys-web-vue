@@ -2,6 +2,7 @@ import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import pluginVue from 'eslint-plugin-vue'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default [
   {
@@ -9,6 +10,7 @@ export default [
     languageOptions: { globals: globals.browser },
   },
   pluginJs.configs.recommended,
+  eslintPluginPrettierRecommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   {

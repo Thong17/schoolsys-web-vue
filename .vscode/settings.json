@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["schoolsys"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
