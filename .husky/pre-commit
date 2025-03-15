@@ -1,1 +1,2 @@
+source nvs.sh use 23
 npm run pc

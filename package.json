@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue src --fix",
     "format": "npx prettier --write .",
-    "pc": "npm run lint && npm run format",
+    "pc": "npm run format && npm run lint",
     "prepare": "husky"
   },
   "dependencies": {
