@@ -1,5 +1,3 @@
-// @vitest-environment happy-dom
-
 import { expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import BaseButton from '../../components/buttons/BaseButton.vue'
