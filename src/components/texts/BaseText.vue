@@ -1,5 +1,5 @@
 <template>
-  <p class="text-lg text-gray-700G" :style="{ fontSize: size, color }">
+  <p class="text-gray-700G" :class="`text-${size}`" :style="{ color }">
     <slot />
   </p>
 </template>
