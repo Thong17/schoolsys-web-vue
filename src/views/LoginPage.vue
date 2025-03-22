@@ -8,12 +8,32 @@
 </template>
 
 <script setup lang="ts">
-  import { reactive } from 'vue'
+  import { ref } from 'vue'
+  import { apiInstance } from '../configs/axios'
+  import { useAuthStore } from '../stores/auth'
 
-  const username = reactive({ value: '' })
-  const password = reactive({ value: '' })
+  const authStore = useAuthStore()
+
+  const username = ref('')
+  const password = ref('')
   const login = () => {
-    console.log({ username, password })
+    apiInstance
+      .post('auth/login', {
+        username: username.value,
+        password: password.value,
+      })
+      .then((res) => {
+        const { accessToken, user, code } = res.data
+        if (code !== 'SUCCESS') return
+        authStore.setSession(accessToken, null, {
+          id: user._id,
+          name: user.username,
+          email: user.email,
+        })
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 </script>
 
