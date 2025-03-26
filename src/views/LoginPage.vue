@@ -1,10 +1,13 @@
 <template>
-  <form @submit.prevent="login">
+  <form v-if="!authStore?.user" @submit.prevent="login">
     <h2>Login Page</h2>
     <input v-model="username" type="text" placeholder="Username">
     <input v-model="password" type="password" placeholder="Password">
     <button>Login</button>
   </form>
+  <button v-else @click="authStore.removeSession()">
+    Logout
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -32,6 +35,7 @@
         })
       })
       .catch((err) => {
+        alert(err?.response?.data?.message || 'Login failed')
         console.error(err)
       })
   }

@@ -17,7 +17,8 @@ export const useAuthStore = defineStore('auth', {
     >{
       accessToken: localStorage.getItem('accessToken') || null,
       refreshToken: localStorage.getItem('refreshToken') || null,
-      user: null,
+      user: localStorage.getItem('user')
+        ? JSON.parse(localStorage.getItem('user') as string) : null,
     },
   actions: {
     setSession(accessToken: string, refreshToken: string | null, user: IUser) {
@@ -26,6 +27,7 @@ export const useAuthStore = defineStore('auth', {
       this.user = user
       localStorage.setItem('accessToken', accessToken)
       if (refreshToken) localStorage.setItem('refreshToken', refreshToken)
+      if (user) localStorage.setItem('user', JSON.stringify(user))
     },
     removeSession() {
       this.accessToken = null
@@ -33,6 +35,7 @@ export const useAuthStore = defineStore('auth', {
       this.user = null
       localStorage.removeItem('accessToken')
       localStorage.removeItem('refreshToken')
+      localStorage.removeItem('user')
     },
   },
 })
