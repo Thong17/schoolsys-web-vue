@@ -1,11 +1,18 @@
 <template>
   <h1>Todo Application</h1>
-  <form @submit.prevent="addTodo">
-    <input v-model="newTodo" type="text" placeholder="Add new todo">
-    <button type="submit">
-      Add
-    </button>
-  </form>
+  <v-container>
+    <form @submit.prevent="addTodo">
+      <v-text-field
+        v-model="newTodo"
+        type="text"
+        placeholder="Add new todo"
+        variant="outlined"
+      />
+      <button type="submit">
+        Add
+      </button>
+    </form>
+  </v-container>
   <ul>
     <li v-for="todo in todos" :key="todo.id" class="todo-item">
       {{ todo.text }}
