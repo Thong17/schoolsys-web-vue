@@ -1,33 +1,37 @@
 {
   "name": "schoolsys-web-vue",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview",
+    "serve": "vite preview",
+    "build": "vite build",
     "lint": "eslint --ext .js,.vue src --fix",
+    "dev": "vite",
     "format": "npx prettier --write .",
     "pc": "npm run format && npm run lint",
+    "prepare": "husky",
+    "preview": "vite preview",
     "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
     "test:ci": "vitest --ci",
-    "prepare": "husky"
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest --watch"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "axios": "^1.8.4",
     "js-sha256": "^0.11.0",
     "pinia": "^3.0.1",
+    "roboto-fontface": "*",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@types/node": "^22.13.10",
     "@types/vue": "^1.0.31",
+    "@types/webfontloader": "^1.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitest/coverage-v8": "^3.0.8",
     "@vitest/ui": "^3.0.8",
@@ -46,8 +50,10 @@
     "vite": "^6.2.0",
     "vite-plugin-vuetify": "^2.1.0",
     "vitest": "^3.0.8",
+    "vue-cli-plugin-vuetify": "~2.5.8",
     "vue-eslint-parser": "^10.1.1",
     "vue-tsc": "^2.2.4",
     "vuetify": "^3.7.19"
-  }
+  },
+  "type": "module"
 }
